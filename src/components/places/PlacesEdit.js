@@ -3,6 +3,8 @@ import Axios from 'axios';
 
 import PlacesForm from './PlacesForm';
 
+import Auth from '../../lib/Auth';
+
 class PlacesEdit extends React.Component {
   state = {
     place: {
@@ -28,7 +30,7 @@ class PlacesEdit extends React.Component {
     e.preventDefault();
 
     Axios
-      .put(`/api/places/${this.props.match.params.id}`, this.state.place)
+      .put(`/api/places/${this.props.match.params.id}`, this.state.place, { headers: { 'Authorization': `Bearer ${Auth.getToken()}` } })
       .then(res => this.props.history.push(`/places/${res.data.id}`))
       .catch(err => console.log(err));
   }

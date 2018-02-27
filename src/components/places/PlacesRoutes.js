@@ -1,6 +1,8 @@
 import React from 'react';
 import { Switch, Route } from 'react-router-dom';
 
+import ProtectedRoute from '../utility/ProtectedRoute';
+
 import PlacesIndex from './PlacesIndex';
 import PlacesShow from './PlacesShow';
 import PlacesEdit from './PlacesEdit';
@@ -10,8 +12,8 @@ const PlacesRoutes = () => {
   return (
     <Switch>
       <Route exact path="/" component={PlacesIndex} />
-      <Route path="/places/new" name="Rane" component={PlacesNew} />
-      <Route path="/places/:id/edit" component={PlacesEdit} />
+      <ProtectedRoute path="/places/new" name="Rane" component={PlacesNew} />
+      <ProtectedRoute path="/places/:id/edit" component={PlacesEdit} />
       <Route path="/places/:id" component={PlacesShow} />
     </Switch>
   );
