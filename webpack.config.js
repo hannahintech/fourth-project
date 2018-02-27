@@ -16,7 +16,7 @@ const CopyWebpack = new CopyWebpackPlugin([
 const HotModuleReplcement = new webpack.HotModuleReplacementPlugin();
 
 module.exports = {
-  entry: './src/app.js',
+  place: './src/app.js',
   output: {
     path: path.resolve('public'),
     filename: 'app.js',
