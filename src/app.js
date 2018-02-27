@@ -5,7 +5,7 @@ import { BrowserRouter as Router, Link } from 'react-router-dom';
 import PlacesRoutes from './components/places/PlacesRoutes';
 
 import 'bootstrap-css-only';
-import 'font-awesome/css/font-awesome.css';
+// import 'font-awesome/css/font-awesome.css';
 import './scss/style.scss';
 
 class App extends React.Component {
