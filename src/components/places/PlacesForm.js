@@ -1,6 +1,6 @@
 import React from 'react';
 
-function PlacesForm({ history, handleSubmit, handleChange, place, errors }) {
+function PlacesForm({ handleSubmit, handleChange, place, errors }) {
 
   const formInvalid = Object.keys(errors).some(key => errors[key]);
 
