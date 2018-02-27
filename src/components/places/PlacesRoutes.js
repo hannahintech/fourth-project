@@ -1,14 +1,14 @@
 import React from 'react';
 import { Switch, Route } from 'react-router-dom';
 
-import EntriesIndex from './EntriesIndex';
+import PlacesIndex from './PlacesIndex';
 
-const EntriesRoutes = () => {
+const PlacesRoutes = () => {
   return (
     <Switch>
-      <Route exact path="/" component={EntriesIndex} />
+      <Route exact path="/" component={PlacesIndex} />
     </Switch>
   );
 };
 
-export default EntriesRoutes;
+export default PlacesRoutes;

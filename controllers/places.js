@@ -1,14 +1,14 @@
 const Place = require('../models/place');
 
-function entriesIndex(req, res, next) {
+function placesIndex(req, res, next) {
   Place
     .find()
     .exec()
-    .then(entries => res.json(entries))
+    .then(places => res.json(places))
     .catch(next);
 }
 
-function entriesCreate(req, res, next) {
+function placesCreate(req, res, next) {
 
   if(req.file) req.body.image = req.file.filename;
 
@@ -18,7 +18,7 @@ function entriesCreate(req, res, next) {
     .catch(next);
 }
 
-function entriesShow(req, res, next) {
+function placesShow(req, res, next) {
   Place
     .findById(req.params.id)
     .exec()
@@ -29,7 +29,7 @@ function entriesShow(req, res, next) {
     .catch(next);
 }
 
-function entriesUpdate(req, res, next) {
+function placesUpdate(req, res, next) {
 
   if(req.file) req.body.image = req.file.filename;
 
@@ -45,7 +45,7 @@ function entriesUpdate(req, res, next) {
     .catch(next);
 }
 
-function entriesDelete(req, res, next) {
+function placesDelete(req, res, next) {
   Place
     .findById(req.params.id)
     .exec()
@@ -58,9 +58,9 @@ function entriesDelete(req, res, next) {
 }
 
 module.exports = {
-  index: entriesIndex,
-  create: entriesCreate,
-  show: entriesShow,
-  update: entriesUpdate,
-  delete: entriesDelete
+  index: placesIndex,
+  create: placesCreate,
+  show: placesShow,
+  update: placesUpdate,
+  delete: placesDelete
 };

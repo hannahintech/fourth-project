@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { BrowserRouter as Router, Link } from 'react-router-dom';
 
-import EntriesRoutes from './components/entries/EntriesRoutes';
+import PlacesRoutes from './components/places/PlacesRoutes';
 
 import 'bootstrap-css-only';
 import 'font-awesome/css/font-awesome.css';
@@ -18,7 +18,7 @@ class App extends React.Component {
             <h1><Link to="/">Place Notes</Link></h1>
           </header>
           <main>
-            <EntriesRoutes />
+            <PlacesRoutes />
           </main>
         </div>
       </Router>

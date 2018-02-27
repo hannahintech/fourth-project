@@ -4,15 +4,15 @@ import { Link } from 'react-router-dom';
 
 // import Auth from '../../lib/Auth';
 
-class EntriesIndex extends React.Component {
+class PlacesIndex extends React.Component {
   state = {
-    entries: []
+    places: []
   }
 
   componentWillMount() {
     Axios
-      .get('/api/entries')
-      .then(res => this.setState({ entries: res.data }))
+      .get('/api/places')
+      .then(res => this.setState({ places: res.data }))
       .catch(err => console.log(err));
   }
 
@@ -21,17 +21,17 @@ class EntriesIndex extends React.Component {
       <div>
         <div className="row">
           <div className="col-md-12">
-            <Link to="/entries/new" className="main-button">
+            <Link to="/places/new" className="main-button">
               <i className="fa fa-plus" aria-hidden="true"></i>Add Place
             </Link>
           </div>
-          {this.state.entries.map(entry => {
+          {this.state.places.map(place => {
             return(
-              <div key={entry.id} className="col-md-4 col-sm-6 col-xs-12">
-                <Link to={`/entries/${entry.id}`}>
-                  <img src={entry.image} className="img-responsive" />
+              <div key={place.id} className="col-md-4 col-sm-6 col-xs-12">
+                <Link to={`/places/${place.id}`}>
+                  <img src={place.image} className="img-responsive" />
                 </Link>
-                <p>{entry.name}</p>
+                <p>{place.name}</p>
               </div>
             );
           })}
@@ -41,4 +41,4 @@ class EntriesIndex extends React.Component {
   }
 }
 
-export default EntriesIndex;
+export default PlacesIndex;

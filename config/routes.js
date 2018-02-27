@@ -1,16 +1,16 @@
 const router = require('express').Router();
 // const secureRoute = require('../lib/secureRoute');
-const entries  = require('../controllers/entries');
+const places  = require('../controllers/places');
 const auth  = require('../controllers/auth');
 
-router.route('/entries')
-  .get(entries.index)
-  .post(entries.create);
+router.route('/places')
+  .get(places.index)
+  .post(places.create);
 
-router.route('/entries/:id')
-  .get(entries.show)
-  .put(entries.update)
-  .delete(entries.delete);
+router.route('/places/:id')
+  .get(places.show)
+  .put(places.update)
+  .delete(places.delete);
 
 router.route('/register')
   .post(auth.register);
