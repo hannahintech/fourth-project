@@ -9,7 +9,7 @@ function placesIndex(req, res, next) {
 }
 
 function placesCreate(req, res, next) {
-
+  req.body.createdBy = req.currentUser;
   if(req.file) req.body.image = req.file.filename;
 
   Place

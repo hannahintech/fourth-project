@@ -2,6 +2,8 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import Axios from 'axios';
 
+import GoogleMap from '../maps/GoogleMap';
+
 // import Auth from '../../lib/Auth';
 
 class PlacesShow extends React.Component {
@@ -24,10 +26,15 @@ class PlacesShow extends React.Component {
   }
 
   render() {
+    console.log('loaded');
+
     return (
       <div className="row">
-        <div className="image-tile col-md-6">
+        <div className="col-md-6">
           <img src={this.state.place.image} className="img-responsive" />
+        </div>
+        <div className="col-md-6">
+          {this.state.place.location && <GoogleMap className="google-map" center={this.state.place.location} />}
         </div>
         <div className="col-md-6">
           <h3>{this.state.place.name}</h3>

@@ -12,7 +12,8 @@ const placeSchema = new mongoose.Schema({
   notes: String,
   visitDate: String,
   publicPlace: Boolean,
-  ratings: [ ratingSchema ]
+  ratings: [ ratingSchema ],
+  createdBy: { type: mongoose.Schema.ObjectId, ref: 'User', required: true }
 });
 
 placeSchema.set('toJSON', {

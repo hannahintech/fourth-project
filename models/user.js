@@ -5,6 +5,7 @@ const userSchema = new mongoose.Schema({
   username: { type: String, required: true },
   email: { type: String, required: true, unique: true },
   password: { type: String, required: true }
+  // places: { type: mongoose.Schema.ObjectId, ref: 'Places' }
 });
 
 userSchema.set('toJSON', {
@@ -22,6 +23,8 @@ userSchema
   .set(function setPasswordConfirmation(passwordConfirmation) {
     this._passwordConfirmation = passwordConfirmation;
   });
+
+// OR add a virtual for all the places
 
 userSchema.pre('validate', function checkPassword(next) {
   if(!this._passwordConfirmation || this._passwordConfirmation !== this.password) {

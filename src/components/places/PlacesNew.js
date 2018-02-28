@@ -25,7 +25,7 @@ class PlacesNew extends React.Component {
 
     Axios
       .post('/api/places', this.state.place, this.state.place, { headers: { 'Authorization': `Bearer ${Auth.getToken()}` } })
-      .then(() => this.props.history.push('/'))
+      .then(() => this.props.history.push('/places'))
       .catch(err => this.setState({ errors: err.response.data.errors }));
   }
 

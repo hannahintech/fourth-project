@@ -11,10 +11,10 @@ import PlacesNew from './PlacesNew';
 const PlacesRoutes = () => {
   return (
     <Switch>
-      <Route exact path="/" component={PlacesIndex} />
-      <ProtectedRoute path="/places/new" name="Rane" component={PlacesNew} />
       <ProtectedRoute path="/places/:id/edit" component={PlacesEdit} />
+      <ProtectedRoute path="/places/new" component={PlacesNew} />
       <Route path="/places/:id" component={PlacesShow} />
+      <Route path="/places" component={PlacesIndex} />
     </Switch>
   );
 };
