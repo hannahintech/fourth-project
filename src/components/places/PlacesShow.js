@@ -38,14 +38,16 @@ class PlacesShow extends React.Component {
               </Link>
             </Thumbnail>
           </Col>
-          <Col xs={6} md={4}>
-            {this.state.place.location && <GoogleMap className="google-map" center={this.state.place.location} />}
-          </Col>
         </Row>
         <Row>
-          <Col mdOffset={10}>
+          <Col xs={12} md={12}>
+            {this.state.place.location && <GoogleMap center={this.state.place.location} />}
+          </Col>
+        </Row>
+        <Row className="delete-place-show-page">
+          <Col md={2}>
             <Button bsStyle="danger" onClick={this.deletePlace}>
-              Delete
+              Delete This Place
             </Button>
           </Col>
         </Row>
