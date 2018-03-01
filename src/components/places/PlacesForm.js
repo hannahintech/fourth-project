@@ -1,43 +1,38 @@
 import React from 'react';
+import { Grid, Col, FormGroup, Button } from 'react-bootstrap';
 
 function PlacesForm({ handleSubmit, handleChange, place, errors }) {
 
   const formInvalid = Object.keys(errors).some(key => errors[key]);
 
   return (
-    <div className="row">
-      <div className="page-banner col-md-12">
-      </div>
-      <form onSubmit={handleSubmit} className="col-md-6">
-        <div className="form-group">
+    <Grid>
+      <Col onSubmit={handleSubmit}>
+        <FormGroup>
           <label htmlFor="title">Title</label>
           <input
             type="text"
-            className="form-control"
             id="name"
             name="name"
             value={place.name}
             onChange={handleChange}
           />
-          {errors.name && <p className="error"><small>{errors.name}</small></p>}
-        </div>
-        <div className="form-group">
+          {errors.name && <small>{errors.name}</small>}
+        </FormGroup>
+        <FormGroup>
           <label htmlFor="image">Image</label>
           <input
             type="text"
-            className="form-control"
             id="image"
             name="image"
             value={place.image}
             onChange={handleChange}
           />
-          {errors.image && <p className="error"><small>{errors.image}</small></p>}
-        </div>
-        <div>
-          <button className="save-button" disabled={formInvalid}>Save</button>
-        </div>
-      </form>
-    </div>
+          {errors.image && <small>{errors.image}</small>}
+        </FormGroup>
+        <Button disabled={formInvalid}>Save</Button>
+      </Col>
+    </Grid>
   );
 }
 
