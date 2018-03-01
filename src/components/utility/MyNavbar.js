@@ -21,23 +21,28 @@ const MyNavbar = ({ history }) => {
       </Navbar.Header>
       <Navbar.Collapse>
         <Nav>
-          { Auth.isAuthenticated() && <NavItem eventKey={1}>
-            <Link to={`/users/${Auth.getPayload().userId}`}>Profile</Link>
-          </NavItem>}
-          <NavItem eventKey={2} href="#">
-            Link
+          <NavItem eventKey={1}>
+            { Auth.isAuthenticated() &&
+              <Link to={`/users/${Auth.getPayload().userId}`}>Profile</Link>
+            }
           </NavItem>
         </Nav>
         <Nav pullRight>
-          { !Auth.isAuthenticated() && <NavItem eventKey={1}>
-            <Link to="/login">Login</Link>
-          </NavItem>}
-          { !Auth.isAuthenticated() && <NavItem eventKey={2}>
-            <Link to="/register">Register</Link>
-          </NavItem>}
-          { Auth.isAuthenticated() && <NavItem eventKey={3}>
-            <a href="#" onClick={logout}>Logout</a>
-          </NavItem>}
+          <NavItem eventKey={1}>
+            { !Auth.isAuthenticated() &&
+              <Link to="/login">Login</Link>
+            }
+          </NavItem>
+          <NavItem eventKey={2}>
+            { !Auth.isAuthenticated() &&
+              <Link to="/register">Register</Link>
+            }
+          </NavItem>
+          <NavItem eventKey={3}>
+            { Auth.isAuthenticated() &&
+              <a href="#" onClick={logout}>Logout</a>
+            }
+          </NavItem>
         </Nav>
       </Navbar.Collapse>
     </Navbar>

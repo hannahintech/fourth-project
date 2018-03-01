@@ -33,6 +33,12 @@ class UsersShow extends React.Component {
           </Col>
         </Row>
         <Row className="show-grid">
+          {!this.state.place &&
+          <Col md={3}>
+            <p>You dont have any places yet</p>
+          </Col>}
+        </Row>
+        <Row className="show-grid">
           {this.state.places.map(place => {
             return(
               <Col md={4} key={place.id}>
