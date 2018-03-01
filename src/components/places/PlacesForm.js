@@ -1,5 +1,5 @@
 import React from 'react';
-import { Grid, Col, FormGroup, Button } from 'react-bootstrap';
+import { Grid, FormGroup, Button } from 'react-bootstrap';
 
 function PlacesForm({ handleSubmit, handleChange, place, errors }) {
 
@@ -7,7 +7,7 @@ function PlacesForm({ handleSubmit, handleChange, place, errors }) {
 
   return (
     <Grid>
-      <Col onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit}>
         <FormGroup>
           <label htmlFor="title">Title</label>
           <input
@@ -31,7 +31,7 @@ function PlacesForm({ handleSubmit, handleChange, place, errors }) {
           {errors.image && <small>{errors.image}</small>}
         </FormGroup>
         <Button disabled={formInvalid}>Save</Button>
-      </Col>
+      </form>
     </Grid>
   );
 }

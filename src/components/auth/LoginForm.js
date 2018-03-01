@@ -1,10 +1,10 @@
 import React from 'react';
-import { Grid, Col, FormGroup, Button } from 'react-bootstrap';
+import { Grid, FormGroup, Button } from 'react-bootstrap';
 
 const LoginForm = ({ handleChange, handleSubmit, user }) => {
   return (
     <Grid>
-      <Col md={5} onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit}>
         <FormGroup>
           <input
             type="text"
@@ -26,7 +26,7 @@ const LoginForm = ({ handleChange, handleSubmit, user }) => {
           />
         </FormGroup>
         <Button bsStyle="success">Login</Button>
-      </Col>
+      </form>
     </Grid>
   );
 };
