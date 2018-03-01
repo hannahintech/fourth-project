@@ -1,6 +1,8 @@
 import React from 'react';
 
-const RegisterForm = ({ handleChange, handleSubmit, user }) => {
+const RegisterForm = ({ handleChange, handleSubmit, user, errors }) => {
+  const formInvalid = Object.keys(errors).some(key => errors[key]);
+
   return (
     <form onSubmit={handleSubmit}>
       <div className="form-group">
@@ -12,6 +14,7 @@ const RegisterForm = ({ handleChange, handleSubmit, user }) => {
           value={user.firstname}
           className="form-control"
         />
+        {errors.name && <p className="error"><small>{errors.name}</small></p>}
       </div>
       <div className="form-group">
         <input
@@ -22,6 +25,7 @@ const RegisterForm = ({ handleChange, handleSubmit, user }) => {
           value={user.lastname}
           className="form-control"
         />
+        {errors.name && <p className="error"><small>{errors.name}</small></p>}
       </div>
       <div className="form-group">
         <input
@@ -32,6 +36,7 @@ const RegisterForm = ({ handleChange, handleSubmit, user }) => {
           value={user.username}
           className="form-control"
         />
+        {errors.name && <p className="error"><small>{errors.name}</small></p>}
       </div>
       <div className="form-group">
         <input
@@ -42,6 +47,7 @@ const RegisterForm = ({ handleChange, handleSubmit, user }) => {
           value={user.email}
           className="form-control"
         />
+        {errors.name && <p className="error"><small>{errors.name}</small></p>}
       </div>
       <div className="form-group">
         <input
@@ -52,6 +58,7 @@ const RegisterForm = ({ handleChange, handleSubmit, user }) => {
           value={user.password}
           className="form-control"
         />
+        {errors.name && <p className="error"><small>{errors.name}</small></p>}
       </div>
       <div className="form-group">
         <input
@@ -62,9 +69,10 @@ const RegisterForm = ({ handleChange, handleSubmit, user }) => {
           value={user.passwordConfirmation}
           className="form-control"
         />
+        {errors.name && <p className="error"><small>{errors.name}</small></p>}
       </div>
 
-      <button className="main-button">Register</button>
+      <button className="main-button" disabled={formInvalid}>Register</button>
     </form>
   );
 };

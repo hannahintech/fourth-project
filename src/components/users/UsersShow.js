@@ -1,5 +1,7 @@
 import React from 'react';
 import Axios from 'axios';
+import { Link } from 'react-router-dom';
+import { Grid, Row, Col, Image } from 'react-bootstrap';
 
 import Auth from '../../lib/Auth';
 
@@ -24,10 +26,25 @@ class UsersShow extends React.Component {
 
   render(){
     return(
-      <section>
-        <h1>{this.state.user.username}</h1>
-
-      </section>
+      <Grid>
+        <Row className="show-grid">
+          <Col md={3}>
+            <h3 className="user-profile-name">{`${this.state.user.username}'s place notes`}</h3>
+          </Col>
+        </Row>
+        <Row className="show-grid">
+          {this.state.places.map(place => {
+            return(
+              <Col md={4} key={place.id}>
+                <Link to={`/places/${place.id}`}>
+                  <Image src={place.image} responsive />
+                </Link>
+                <p>{place.name}</p>
+              </Col>
+            );
+          })}
+        </Row>
+      </Grid>
     );
   }
 }

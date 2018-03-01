@@ -14,7 +14,8 @@ class Register extends React.Component {
       email: '',
       password: '',
       passwordConfirmation: ''
-    }
+    },
+    errors: {}
   };
 
   handleChange = ({ target: { name, value }}) => {
@@ -31,7 +32,7 @@ class Register extends React.Component {
 
         this.props.history.push('/');
       })
-      .catch(err => console.log(err));
+      .catch(err => this.setState({ errors: err.response.data.errors }));
   }
 
   render() {
@@ -40,6 +41,7 @@ class Register extends React.Component {
         user={this.state.user}
         handleChange={this.handleChange}
         handleSubmit={this.handleSubmit}
+        errors={this.state.errors}
       />
     );
   }

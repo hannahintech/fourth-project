@@ -32,7 +32,7 @@ class PlacesEdit extends React.Component {
     Axios
       .put(`/api/places/${this.props.match.params.id}`, this.state.place, { headers: { 'Authorization': `Bearer ${Auth.getToken()}` } })
       .then(res => this.props.history.push(`/places/${res.data.id}`))
-      .catch(err => console.log(err));
+      .catch(err => this.setState({ errors: err.response.data.errors }));
   }
 
   render() {

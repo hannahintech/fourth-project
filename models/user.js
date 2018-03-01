@@ -2,9 +2,11 @@ const mongoose = require('mongoose');
 const bcrypt = require('bcrypt');
 
 const userSchema = new mongoose.Schema({
-  username: { type: String, required: true },
-  email: { type: String, required: true, unique: true },
-  password: { type: String, required: true }
+  firstname: { type: String, required: 'Please provide a first name' },
+  lastname: { type: String, required: 'Please provide a last name' },
+  username: { type: String, required: 'Please provide a valid username' },
+  email: { type: String, required: 'Please provide a valid email', unique: true },
+  password: { type: String, required: 'Please enter a password' }
   // places: [{ type: mongoose.Schema.ObjectId, ref: 'Place' }]
 });
 

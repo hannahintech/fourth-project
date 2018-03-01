@@ -1,6 +1,7 @@
 import React from 'react';
 import Axios from 'axios';
 import { Link } from 'react-router-dom';
+import { Grid, Row, Col, Image } from 'react-bootstrap';
 
 // import Auth from '../../lib/Auth';
 
@@ -18,25 +19,27 @@ class PlacesIndex extends React.Component {
 
   render() {
     return (
-      <div>
-        <div className="row">
-          <div className="col-md-12">
+      <Grid>
+        <Row className="show-grid">
+          <Col md={2}>
             <Link to="/places/new" className="main-button">
               <i className="fa fa-plus" aria-hidden="true"></i>Add Place
             </Link>
-          </div>
+          </Col>
+        </Row>
+        <Row className="show-grid">
           {this.state.places.map(place => {
             return(
-              <div key={place.id} className="col-md-4 col-sm-6 col-xs-12">
+              <Col md={4} key={place.id}>
                 <Link to={`/places/${place.id}`}>
-                  <img src={place.image} className="img-responsive" />
+                  <Image src={place.image} responsive />
                 </Link>
                 <p>{place.name}</p>
-              </div>
+              </Col>
             );
           })}
-        </div>
-      </div>
+        </Row>
+      </Grid>
     );
   }
 }
