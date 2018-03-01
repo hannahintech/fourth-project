@@ -13,8 +13,12 @@ const placeSchema = new mongoose.Schema({
   visitDate: String,
   publicPlace: Boolean,
   ratings: [ ratingSchema ],
-  createdBy: { type: mongoose.Schema.ObjectId, ref: 'User', required: true }
+  createdBy: { type: mongoose.Schema.ObjectId, ref: 'User' }
 });
+
+placeSchema.methods.belongsTo = function placeBelongsTo(user) {
+  return this.createdBy.id === user.id;
+};
 
 placeSchema.set('toJSON', {
   getters: true,

@@ -4,17 +4,17 @@ import Axios from 'axios';
 
 import GoogleMap from '../maps/GoogleMap';
 
-// import Auth from '../../lib/Auth';
-
 class PlacesShow extends React.Component {
   state = {
     place: {}
   }
 
-  componentWillMount() {
+  componentDidMount() {
     Axios
       .get(`/api/places/${this.props.match.params.id}`)
-      .then(res => this.setState({ place: res.data }))
+      .then(res => this.setState({ place: res.data }, () => {
+        console.log(this.state);
+      }))
       .catch(err => console.log(err));
   }
 
@@ -26,8 +26,6 @@ class PlacesShow extends React.Component {
   }
 
   render() {
-    console.log('loaded');
-
     return (
       <div className="row">
         <div className="col-md-6">

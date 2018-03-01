@@ -6,15 +6,18 @@ import Auth from '../../lib/Auth';
 class UsersShow extends React.Component {
 
   state = {
-    user: {}
+    user: {},
+    places: []
   }
 
-  componentWillMount() {
+  componentDidMount() {
     Axios
       .get(`/api/users/${this.props.match.params.id}`, {
         headers: { 'Authorization': `Bearer ${Auth.getToken()}` }
       })
-      .then(res => this.setState({ user: res.data }))
+      .then(res => this.setState({ user: res.data.user, places: res.data.places }, () => {
+        console.log(this.state);
+      }))
       .catch(err => console.log(err));
   }
 
@@ -23,6 +26,7 @@ class UsersShow extends React.Component {
     return(
       <section>
         <h1>{this.state.user.username}</h1>
+
       </section>
     );
   }

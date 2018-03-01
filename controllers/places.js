@@ -10,7 +10,6 @@ function placesIndex(req, res, next) {
 
 function placesCreate(req, res, next) {
   req.body.createdBy = req.currentUser;
-  if(req.file) req.body.image = req.file.filename;
 
   Place
     .create(req.body)
@@ -21,6 +20,7 @@ function placesCreate(req, res, next) {
 function placesShow(req, res, next) {
   Place
     .findById(req.params.id)
+    .populate('createdBy')
     .exec()
     .then((place) => {
       if(!place) return res.notFound();

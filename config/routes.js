@@ -6,7 +6,7 @@ const users = require('../controllers/users');
 
 router.route('/places')
   .get(places.index)
-  .post(places.create);
+  .post(secureRoute, places.create);
 
 router.route('/places/:id')
   .get(places.show)
