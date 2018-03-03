@@ -3,6 +3,11 @@ import Axios from 'axios';
 import { Link } from 'react-router-dom';
 import { Grid, Row, Col, Button, Image } from 'react-bootstrap';
 
+// import PlaceNotesAutocomplete from '../maps/PlaceNotesAutocomplete';
+
+// import PlacesAutocomplete from 'react-places-autocomplete';
+// import { geocodeByAddress, geocodeByPlaceId } from 'react-places-autocomplete';
+
 // import Auth from '../../lib/Auth';
 
 class PlacesIndex extends React.Component {

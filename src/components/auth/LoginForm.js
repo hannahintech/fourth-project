@@ -25,7 +25,7 @@ const LoginForm = ({ handleChange, handleSubmit, user }) => {
             className="form-control"
           />
         </FormGroup>
-        <Button bsStyle="success">Login</Button>
+        <Button type="submit" bsStyle="success">Login</Button>
       </form>
     </Grid>
   );

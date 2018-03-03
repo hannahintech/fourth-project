@@ -9,7 +9,13 @@ class PlacesNew extends React.Component {
   state = {
     place: {
       name: '',
-      image: ''
+      image: '',
+      location: {
+        lat: null,
+        lng: null
+      },
+      notes: '',
+      publicPlace: null
     },
     errors: {}
   };
@@ -18,6 +24,16 @@ class PlacesNew extends React.Component {
     const place = Object.assign({}, this.state.place, { [name]: value });
     const errors = Object.assign({}, this.state.errors, { [name]: '' });
     this.setState({ place, errors });
+  }
+
+  handleLocationChange = (data) => {
+    const location = {
+      lat: data.geometry.location.lat(),
+      lng: data.geometry.location.lng()
+    };
+
+    const place = Object.assign({}, this.state.place, { location });
+    this.setState({ place }, () => console.log(this.state));
   }
 
   handleSubmit = (e) => {
@@ -35,6 +51,7 @@ class PlacesNew extends React.Component {
         history={this.props.history}
         handleSubmit={this.handleSubmit}
         handleChange={this.handleChange}
+        handleLocationChange={this.handleLocationChange}
         place={this.state.place}
         errors={this.state.errors}
       />

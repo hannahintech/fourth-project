@@ -1,18 +1,18 @@
 const mongoose = require('mongoose');
 
-const ratingSchema = new mongoose.Schema({
-  rating: Number,
-  user: { type: mongoose.Schema.ObjectId, ref: 'User', required: true }
-});
+// const ratingSchema = new mongoose.Schema({
+//   rating: Number,
+//   user: { type: mongoose.Schema.ObjectId, ref: 'User', required: true }
+// });
 
 const placeSchema = new mongoose.Schema({
   name: String,
   location: { lat: Number, lng: Number },
   image: String,
   notes: String,
-  visitDate: String,
+  // visitDate: String,
   publicPlace: Boolean,
-  ratings: [ ratingSchema ],
+  // ratings: [ ratingSchema ],
   createdBy: { type: mongoose.Schema.ObjectId, ref: 'User' }
 });
 

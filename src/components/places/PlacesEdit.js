@@ -9,7 +9,13 @@ class PlacesEdit extends React.Component {
   state = {
     place: {
       name: '',
-      image: ''
+      image: '',
+      location: {
+        lat: null,
+        lng: null
+      },
+      notes: '',
+      publicPlace: false
     },
     errors: {}
   };
@@ -24,6 +30,24 @@ class PlacesEdit extends React.Component {
   handleChange = ({ target: { name, value } }) => {
     const place = Object.assign({}, this.state.place, { [name]: value });
     this.setState({ place });
+  }
+
+  handleCheck = () => {
+    this.setState((state) => {
+      state.place.publicPlace = !state.place.publicPlace;
+      console.log(state);
+      return state;
+    });
+  }
+
+  handleLocationChange = (data) => {
+    const location = {
+      lat: data.geometry.location.lat(),
+      lng: data.geometry.location.lng()
+    };
+
+    const place = Object.assign({}, this.state.place, { location });
+    this.setState({ place }, () => console.log(this.state));
   }
 
   handleSubmit = (e) => {
@@ -41,6 +65,8 @@ class PlacesEdit extends React.Component {
         history={this.props.history}
         handleSubmit={this.handleSubmit}
         handleChange={this.handleChange}
+        handleCheck={this.handleCheck}
+        handleLocationChange={this.handleLocationChange}
         place={this.state.place}
         errors={this.state.errors}
       />

@@ -23,7 +23,6 @@ class UsersShow extends React.Component {
       .catch(err => console.log(err));
   }
 
-
   render(){
     return(
       <Grid>
@@ -33,7 +32,7 @@ class UsersShow extends React.Component {
           </Col>
         </Row>
         <Row className="show-grid">
-          {!this.state.place &&
+          {this.state.places.length === 0 &&
           <Col md={3}>
             <p>You dont have any places yet</p>
           </Col>}

@@ -1,6 +1,7 @@
 import React from 'react';
-import { Link, withRouter } from 'react-router-dom';
+import { withRouter } from 'react-router-dom';
 import { Navbar, Nav, NavItem } from 'react-bootstrap';
+import { LinkContainer } from 'react-router-bootstrap';
 
 import Auth from '../../lib/Auth';
 
@@ -21,28 +22,28 @@ const MyNavbar = ({ history }) => {
       </Navbar.Header>
       <Navbar.Collapse>
         <Nav>
-          <NavItem eventKey={1}>
-            { Auth.isAuthenticated() &&
-              <Link to={`/users/${Auth.getPayload().userId}`}>Profile</Link>
-            }
-          </NavItem>
+          { Auth.isAuthenticated() &&
+            <LinkContainer to={`/users/${Auth.getPayload().userId}`}>
+              <NavItem eventKey={1}>Profile</NavItem>
+            </LinkContainer>
+          }
         </Nav>
         <Nav pullRight>
-          <NavItem eventKey={1}>
-            { !Auth.isAuthenticated() &&
-              <Link to="/login">Login</Link>
-            }
+          { !Auth.isAuthenticated() &&
+            <LinkContainer to="/login">
+              <NavItem eventKey={1}>Login</NavItem>
+            </LinkContainer>
+          }
+          { !Auth.isAuthenticated() &&
+            <LinkContainer to="/register">
+              <NavItem eventKey={2}>Register</NavItem>
+            </LinkContainer>
+          }
+          { Auth.isAuthenticated() &&
+          <NavItem eventKey={3} href="#" onClick={logout}>
+            Logout
           </NavItem>
-          <NavItem eventKey={2}>
-            { !Auth.isAuthenticated() &&
-              <Link to="/register">Register</Link>
-            }
-          </NavItem>
-          <NavItem eventKey={3}>
-            { Auth.isAuthenticated() &&
-              <a href="#" onClick={logout}>Logout</a>
-            }
-          </NavItem>
+          }
         </Nav>
       </Navbar.Collapse>
     </Navbar>
