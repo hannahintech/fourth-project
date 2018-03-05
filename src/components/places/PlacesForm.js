@@ -49,7 +49,7 @@ function PlacesForm({ handleSubmit, handleInputChange, handleCheckboxChange, pla
           />
           {errors.image && <small>{errors.image}</small>} */}
           <ReactFilestack
-            apikey={''}
+            apikey={'AJT677thRhCmDsqq5nKPBz'}
             buttonText="Add image"
             onSuccess={handleImageChange}
           />
