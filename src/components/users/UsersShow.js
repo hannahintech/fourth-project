@@ -26,25 +26,25 @@ class UsersShow extends React.Component {
   render(){
     return(
       <Grid>
-        <Row className="show-grid">
+        <Row>
           <Col md={4}>
             <h3 className="user-profile-name">{`${this.state.user.username}'s place notes`}</h3>
           </Col>
         </Row>
         <Row>
           <Col md={2}>
-            <Link to="/places/new" className="main-button">
+            <Link to="/places/new">
               <Button bsStyle="info">Add Place</Button>
             </Link>
           </Col>
         </Row>
-        <Row className="show-grid">
+        <Row>
           {this.state.places.length === 0 &&
           <Col md={3}>
             <p>You dont have any places yet</p>
           </Col>}
         </Row>
-        <Row className="show-grid">
+        <Row>
           {this.state.places.map(place => {
             return(
               <Col md={4} key={place.id}>

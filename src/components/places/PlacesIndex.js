@@ -1,7 +1,9 @@
 import React from 'react';
 import Axios from 'axios';
 import { Link } from 'react-router-dom';
-import { Grid, Row, Col, Image } from 'react-bootstrap';
+import { Grid, Row, Col, Image, Button } from 'react-bootstrap';
+
+import Auth from '../../lib/Auth';
 
 class PlacesIndex extends React.Component {
   state = {
@@ -18,6 +20,18 @@ class PlacesIndex extends React.Component {
   render() {
     return (
       <Grid>
+        <Row>
+          <Col md={4}>
+            <h3>{'Public Place Notes'}</h3>
+          </Col>
+        </Row>
+        <Row>
+          <Col md={3}>
+            <Link to={`/users/${Auth.getPayload().userId}`}>
+              { Auth.isAuthenticated() && <Button className="landing-page-button" bsStyle="success">My Place Notes Profile</Button>}
+            </Link>
+          </Col>
+        </Row>
         <Row>
           {this.state.places.map(place => {
             return(
