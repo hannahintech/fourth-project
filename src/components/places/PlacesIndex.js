@@ -28,7 +28,7 @@ class PlacesIndex extends React.Component {
         <Row>
           <Col md={3}>
             <Link to={`/users/${Auth.getPayload().userId}`}>
-              { Auth.isAuthenticated() && <Button className="landing-page-button" bsStyle="success">My Place Notes Profile</Button>}
+              { Auth.isAuthenticated() && <Button className="landing-page-button" bsStyle="info">My Place Notes Profile</Button>}
             </Link>
           </Col>
         </Row>

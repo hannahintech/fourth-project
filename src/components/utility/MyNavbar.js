@@ -14,6 +14,9 @@ const MyNavbar = ({ history }) => {
 
   return(
     <Navbar inverse collapseOnSelect>
+      <Navbar.Brand>
+        <div className="brand-logo"></div>
+      </Navbar.Brand>
       <Navbar.Header>
         <Navbar.Brand>
           <a href="/places">Place Notes</a>
@@ -21,13 +24,6 @@ const MyNavbar = ({ history }) => {
         <Navbar.Toggle />
       </Navbar.Header>
       <Navbar.Collapse>
-        <Nav>
-          { Auth.isAuthenticated() &&
-            <LinkContainer to={`/users/${Auth.getPayload().userId}`}>
-              <NavItem eventKey={1}>Profile</NavItem>
-            </LinkContainer>
-          }
-        </Nav>
         <Nav pullRight>
           { !Auth.isAuthenticated() &&
             <LinkContainer to="/login">
@@ -43,6 +39,13 @@ const MyNavbar = ({ history }) => {
           <NavItem eventKey={3} href="#" onClick={logout}>
             Logout
           </NavItem>
+          }
+        </Nav>
+        <Nav pullRight>
+          { Auth.isAuthenticated() &&
+            <LinkContainer to={`/users/${Auth.getPayload().userId}`}>
+              <NavItem eventKey={1}>Profile</NavItem>
+            </LinkContainer>
           }
         </Nav>
       </Navbar.Collapse>

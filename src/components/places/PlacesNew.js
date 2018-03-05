@@ -51,6 +51,10 @@ class PlacesNew extends React.Component {
     });
   }
 
+  // imagePreview = () => {
+  //   render div
+  // }
+
   handleSubmit = (e) => {
     e.preventDefault();
     Axios
@@ -73,6 +77,7 @@ class PlacesNew extends React.Component {
         handleLocationChange={this.handleLocationChange}
         place={this.state.place}
         errors={this.state.errors}
+        imagePreview={this.imagePreview}
       />
     );
   }
