@@ -73,9 +73,9 @@ function PlacesForm({ handleSubmit, handleInputChange, handleCheckboxChange, pla
           value={place.publicPlace}
           onChange={handleCheckboxChange}
         >
-          Public post
+          make public
         </Checkbox>
-        <Button bsStyle="success" type="submit" disabled={formInvalid}>Save</Button>
+        <Button bsStyle="info" type="submit" disabled={formInvalid}>Save</Button>
       </form>
     </Grid>
   );

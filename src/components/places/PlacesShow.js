@@ -1,5 +1,4 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import Axios from 'axios';
 import { Grid, Row, Col, Button, Thumbnail, Navbar } from 'react-bootstrap';
 import { LinkContainer } from 'react-router-bootstrap';
@@ -34,6 +33,9 @@ class PlacesShow extends React.Component {
       <section>
         <Navbar>
           <Navbar.Header>
+            <Navbar.Brand>
+              <h4>{this.state.place.name}</h4>
+            </Navbar.Brand>
             <Navbar.Toggle />
           </Navbar.Header>
           <Navbar.Collapse>
@@ -44,7 +46,7 @@ class PlacesShow extends React.Component {
             </Navbar.Text>
             <Navbar.Text pullRight>
               <LinkContainer to={`/places/${this.state.place.id}/edit`}>
-                <Button bsStyle="success">Edit</Button>
+                <Button bsStyle="info">Edit</Button>
               </LinkContainer>
             </Navbar.Text>
           </Navbar.Collapse>
@@ -53,13 +55,13 @@ class PlacesShow extends React.Component {
           <Row>
             <Col xs={6} md={4}>
               <Thumbnail src={this.state.place.image || 'https://static.pexels.com/photos/67211/field-away-summer-sky-67211.jpeg'} alt="242x200">
-                <h3>{this.state.place.name}</h3>
               </Thumbnail>
             </Col>
+            {!this.state.place.notes === 0 &&
             <Col>
               <h4>Notes</h4>
               <p>{this.state.place.notes}</p>
-            </Col>
+            </Col>}
           </Row>
           <Row>
             <Col xs={12} md={12}>

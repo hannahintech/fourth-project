@@ -1,31 +1,29 @@
 import React from 'react';
-import { Grid, FormGroup, Button } from 'react-bootstrap';
+import { Grid, FormGroup, FormControl, Button } from 'react-bootstrap';
 
 const LoginForm = ({ handleChange, handleSubmit, user }) => {
   return (
     <Grid>
       <form onSubmit={handleSubmit}>
         <FormGroup>
-          <input
+          <FormControl
             type="text"
             name="email"
             placeholder="Email"
             onChange={handleChange}
             value={user.email}
-            className="form-control"
           />
         </FormGroup>
         <FormGroup>
-          <input
+          <FormControl
             type="password"
             name="password"
             placeholder="Password"
             onChange={handleChange}
             value={user.password}
-            className="form-control"
           />
         </FormGroup>
-        <Button type="submit" bsStyle="success">Login</Button>
+        <Button type="submit" bsStyle="info">Login</Button>
       </form>
     </Grid>
   );
