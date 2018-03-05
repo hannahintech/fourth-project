@@ -15,12 +15,12 @@ class PlacesNew extends React.Component {
         lng: null
       },
       notes: '',
-      publicPlace: null
+      publicPlace: false
     },
     errors: {}
   };
 
-  handleChange = ({ target: { name, value } }) => {
+  handleInputChange = ({ target: { name, value } }) => {
     const place = Object.assign({}, this.state.place, { [name]: value });
     const errors = Object.assign({}, this.state.errors, { [name]: '' });
     this.setState({ place, errors });
@@ -33,15 +33,32 @@ class PlacesNew extends React.Component {
     };
 
     const place = Object.assign({}, this.state.place, { location });
-    this.setState({ place }, () => console.log(this.state));
+    this.setState({ place });
+  }
+
+  handleImageChange = (result) => {
+    const place = Object.assign({}, this.state.place, { image: result.filesUploaded[0].url});
+    this.setState({ place }, () => {
+      console.log(place.image);
+    });
+  }
+
+  handleCheckboxChange = () => {
+    this.setState((state) => {
+      state.place.publicPlace = !state.place.publicPlace;
+      console.log(state);
+      return state;
+    });
   }
 
   handleSubmit = (e) => {
     e.preventDefault();
-
     Axios
       .post('/api/places', this.state.place, { headers: { 'Authorization': `Bearer ${Auth.getToken()}` } })
-      .then(() => this.props.history.push('/places'))
+      .then((res) => {
+        console.log(res);
+        this.props.history.push(`/users/${Auth.getPayload().userId}`);
+      })
       .catch(err => this.setState({ errors: err.response.data.errors }));
   }
 
@@ -50,7 +67,9 @@ class PlacesNew extends React.Component {
       <PlacesForm
         history={this.props.history}
         handleSubmit={this.handleSubmit}
-        handleChange={this.handleChange}
+        handleImageChange={this.handleImageChange}
+        handleInputChange={this.handleInputChange}
+        handleCheckboxChange={this.handleCheckboxChange}
         handleLocationChange={this.handleLocationChange}
         place={this.state.place}
         errors={this.state.errors}

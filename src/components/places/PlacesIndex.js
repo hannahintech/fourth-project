@@ -1,14 +1,7 @@
 import React from 'react';
 import Axios from 'axios';
 import { Link } from 'react-router-dom';
-import { Grid, Row, Col, Button, Image } from 'react-bootstrap';
-
-// import PlaceNotesAutocomplete from '../maps/PlaceNotesAutocomplete';
-
-// import PlacesAutocomplete from 'react-places-autocomplete';
-// import { geocodeByAddress, geocodeByPlaceId } from 'react-places-autocomplete';
-
-// import Auth from '../../lib/Auth';
+import { Grid, Row, Col, Image } from 'react-bootstrap';
 
 class PlacesIndex extends React.Component {
   state = {
@@ -26,18 +19,11 @@ class PlacesIndex extends React.Component {
     return (
       <Grid>
         <Row>
-          <Col mdOffset={11}>
-            <Link to="/places/new" className="main-button">
-              <Button bsStyle="info">Add Place</Button>
-            </Link>
-          </Col>
-        </Row>
-        <Row>
           {this.state.places.map(place => {
             return(
               <Col md={4} key={place.id}>
                 <Link to={`/places/${place.id}`}>
-                  <Image src={place.image} responsive />
+                  <Image src={place.image || 'https://static.pexels.com/photos/67211/field-away-summer-sky-67211.jpeg'} responsive />
                 </Link>
                 <p>{place.name}</p>
               </Col>

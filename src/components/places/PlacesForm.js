@@ -2,10 +2,9 @@ import React from 'react';
 import { Grid, FormGroup, FormControl, Checkbox, Button } from 'react-bootstrap';
 import ReactFilestack from 'filestack-react';
 
-// import SearchBox from '../maps/SearchBox';
 import Autocomplete from 'react-google-autocomplete';
 
-function PlacesForm({ handleSubmit, handleChange, handleCheck, place, errors, handleLocationChange }) {
+function PlacesForm({ handleSubmit, handleInputChange, handleCheckboxChange, place, errors, handleLocationChange, handleImageChange }) {
 
   const formInvalid = Object.keys(errors).some(key => errors[key]);
 
@@ -19,7 +18,7 @@ function PlacesForm({ handleSubmit, handleChange, handleCheck, place, errors, ha
             id="name"
             name="name"
             value={place.name}
-            onChange={handleChange}
+            onChange={handleInputChange}
           />
           {errors.name && <small>{errors.name}</small>}
         </FormGroup>
@@ -30,7 +29,7 @@ function PlacesForm({ handleSubmit, handleChange, handleCheck, place, errors, ha
             id="name"
             name="name"
             value={place.name}
-            onChange={handleChange}
+            onChange={handleInputChange}
           /> */}
           <Autocomplete
             style={{width: '100%'}}
@@ -40,15 +39,20 @@ function PlacesForm({ handleSubmit, handleChange, handleCheck, place, errors, ha
           {errors.name && <small>{errors.name}</small>}
         </FormGroup>
         <FormGroup>
-          <label htmlFor="image">Image</label>
+          {/* <label htmlFor="image">Image</label>
           <FormControl
             type="text"
             id="image"
             name="image"
             value={place.image}
-            onChange={handleChange}
+            onChange={handleInputChange}
           />
-          {errors.image && <small>{errors.image}</small>}
+          {errors.image && <small>{errors.image}</small>} */}
+          <ReactFilestack
+            apikey={'AJT677thRhCmDsqq5nKPBz'}
+            buttonText="Add image"
+            onSuccess={handleImageChange}
+          />
         </FormGroup>
         <FormGroup>
           <label htmlFor="notes">Notes</label>
@@ -58,7 +62,7 @@ function PlacesForm({ handleSubmit, handleChange, handleCheck, place, errors, ha
             id="notes"
             name="notes"
             value={place.notes}
-            onChange={handleChange}
+            onChange={handleInputChange}
           />
           {errors.notes && <small>{errors.notes}</small>}
         </FormGroup>
@@ -66,7 +70,7 @@ function PlacesForm({ handleSubmit, handleChange, handleCheck, place, errors, ha
           id="publicPlace"
           name="publicPlace"
           value={place.publicPlace}
-          onChange={handleCheck}
+          onChange={handleCheckboxChange}
         >
           Public post
         </Checkbox>

@@ -27,17 +27,21 @@ class PlacesEdit extends React.Component {
       .catch(err => console.log(err));
   }
 
-  handleChange = ({ target: { name, value } }) => {
+  handleInputChange = ({ target: { name, value } }) => {
     const place = Object.assign({}, this.state.place, { [name]: value });
     this.setState({ place });
   }
 
-  handleCheck = () => {
+  handleCheckboxChange = () => {
     this.setState((state) => {
       state.place.publicPlace = !state.place.publicPlace;
-      console.log(state);
       return state;
     });
+  }
+
+  handleImageChange = (result) => {
+    const place = Object.assign({}, this.state.place, { image: result.filesUploaded[0].url});
+    this.setState({ place });
   }
 
   handleLocationChange = (data) => {
@@ -47,12 +51,11 @@ class PlacesEdit extends React.Component {
     };
 
     const place = Object.assign({}, this.state.place, { location });
-    this.setState({ place }, () => console.log(this.state));
+    this.setState({ place });
   }
 
   handleSubmit = (e) => {
     e.preventDefault();
-
     Axios
       .put(`/api/places/${this.props.match.params.id}`, this.state.place, { headers: { 'Authorization': `Bearer ${Auth.getToken()}` } })
       .then(res => this.props.history.push(`/places/${res.data.id}`))
@@ -64,8 +67,9 @@ class PlacesEdit extends React.Component {
       <PlacesForm
         history={this.props.history}
         handleSubmit={this.handleSubmit}
-        handleChange={this.handleChange}
-        handleCheck={this.handleCheck}
+        handleImageChange={this.handleImageChange}
+        handleInputChange={this.handleInputChange}
+        handleCheckboxChange={this.handleCheckboxChange}
         handleLocationChange={this.handleLocationChange}
         place={this.state.place}
         errors={this.state.errors}

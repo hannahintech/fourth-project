@@ -3,6 +3,8 @@ import { Link } from 'react-router-dom';
 import Axios from 'axios';
 import { Grid, Row, Col, Button, Thumbnail } from 'react-bootstrap';
 
+import Auth from '../../lib/Auth';
+
 import GoogleMap from '../maps/GoogleMap';
 
 class PlacesShow extends React.Component {
@@ -22,7 +24,7 @@ class PlacesShow extends React.Component {
   deletePlace = () => {
     Axios
       .delete(`/api/places/${this.props.match.params.id}`)
-      .then(() => this.props.history.push('/'))
+      .then(() => this.props.history.push(`/users/${Auth.getPayload().userId}`))
       .catch(err => console.log(err));
   }
 
@@ -31,7 +33,7 @@ class PlacesShow extends React.Component {
       <Grid>
         <Row>
           <Col xs={6} md={4}>
-            <Thumbnail src={this.state.place.image} alt="242x200">
+            <Thumbnail src={this.state.place.image || 'https://static.pexels.com/photos/67211/field-away-summer-sky-67211.jpeg'} alt="242x200">
               <h3>{this.state.place.name}</h3>
               <Link to={`/places/${this.state.place.id}/edit`}>
                 <Button bsStyle="success">Edit</Button>

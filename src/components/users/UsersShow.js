@@ -1,7 +1,7 @@
 import React from 'react';
 import Axios from 'axios';
 import { Link } from 'react-router-dom';
-import { Grid, Row, Col, Image } from 'react-bootstrap';
+import { Grid, Row, Col, Button, Image } from 'react-bootstrap';
 
 import Auth from '../../lib/Auth';
 
@@ -27,8 +27,15 @@ class UsersShow extends React.Component {
     return(
       <Grid>
         <Row className="show-grid">
-          <Col md={3}>
+          <Col md={4}>
             <h3 className="user-profile-name">{`${this.state.user.username}'s place notes`}</h3>
+          </Col>
+        </Row>
+        <Row>
+          <Col md={2}>
+            <Link to="/places/new" className="main-button">
+              <Button bsStyle="info">Add Place</Button>
+            </Link>
           </Col>
         </Row>
         <Row className="show-grid">
@@ -42,7 +49,7 @@ class UsersShow extends React.Component {
             return(
               <Col md={4} key={place.id}>
                 <Link to={`/places/${place.id}`}>
-                  <Image src={place.image} responsive />
+                  <Image src={place.image || 'https://static.pexels.com/photos/67211/field-away-summer-sky-67211.jpeg'} responsive />
                 </Link>
                 <p>{place.name}</p>
               </Col>

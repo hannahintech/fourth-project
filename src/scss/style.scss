@@ -16,8 +16,15 @@ div {
 }
 
 .img-responsive {
+  width: 375px;
   height: 250px;
 }
 .user-profile-name {
   text-transform: capitalize;
 }
+
+// @media only screen and (max-width: 1000px) {
+//   img.img-responsive {
+//     width: 375px;
+//   }
+// }
