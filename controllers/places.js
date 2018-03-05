@@ -2,9 +2,9 @@ const Place = require('../models/place');
 
 function placesIndex(req, res, next) {
   Place
-    .find()
+    .find({ publicPlace: true })
     .exec()
-    .then(places => res.json(places))
+    .then(places => res.status(200).json(places))
     .catch(next);
 }
 

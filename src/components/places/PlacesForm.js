@@ -1,5 +1,6 @@
 import React from 'react';
 import { Grid, FormGroup, FormControl, Checkbox, Button } from 'react-bootstrap';
+import ReactFilestack from 'filestack-react';
 
 // import SearchBox from '../maps/SearchBox';
 import Autocomplete from 'react-google-autocomplete';
