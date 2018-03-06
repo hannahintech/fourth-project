@@ -32,6 +32,13 @@ User
 
     return Place.create([
       {
+        location: { 'lat': 52.8353879, 'lng': -110.85868119999998 },
+        name: 'Catville!',
+        image: 'https://cdn.filestackcontent.com/utO8lZFQfiSuPhvAUT10',
+        notes: 'There is actually a place called Catville.',
+        publicPlace: true,
+        createdBy: users[0]._id
+      }, {
         name: 'Mill House Poland',
         location: { lat: 51.086812, lng: 15.133495 },
         image: 'https://i.pinimg.com/736x/49/68/1d/49681dd3cd0656fb73f1e7904cf8cff9--poland-house.jpg',
