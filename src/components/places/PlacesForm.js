@@ -1,6 +1,8 @@
 import React from 'react';
-import { Grid, FormGroup, FormControl, Checkbox, Button } from 'react-bootstrap';
+import { Grid, FormGroup, FormControl, Checkbox, Button, Thumbnail } from 'react-bootstrap';
 import ReactFilestack from 'filestack-react';
+
+import keys from '../../lib/publicKeys';
 
 import Autocomplete from 'react-google-autocomplete';
 
@@ -49,11 +51,11 @@ function PlacesForm({ handleSubmit, handleInputChange, handleCheckboxChange, pla
           />
           {errors.image && <small>{errors.image}</small>} */}
           <ReactFilestack
-            apikey={'AJT677thRhCmDsqq5nKPBz'}
+            apikey={keys.FILESTACK_API_KEY}
             buttonText="Add image"
             onSuccess={handleImageChange}
           />
-          <img src={place.image} />
+          <Thumbnail className="form-image-preview" src={place.image} />
         </FormGroup>
         <FormGroup>
           <label htmlFor="notes">Notes</label>
