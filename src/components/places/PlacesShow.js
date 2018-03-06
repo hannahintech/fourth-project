@@ -59,8 +59,12 @@ class PlacesShow extends React.Component {
             </Col>
             <Col>
               <h4>Notes</h4>
-              {/* {!this.state.place.notes === '' && } */}
+              {this.state.place.notes &&
               <p>{this.state.place.notes}</p>
+              }
+              {!this.state.place.notes &&
+              <p>{'There aren\'t any notes here yet!'}</p>
+              }
             </Col>
           </Row>
           <Row>

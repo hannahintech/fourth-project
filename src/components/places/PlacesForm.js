@@ -5,6 +5,7 @@ import ReactFilestack from 'filestack-react';
 import keys from '../../lib/api-keys/keys';
 
 import Autocomplete from 'react-google-autocomplete';
+import GoogleMap from '../maps/GoogleMapForm';
 
 function PlacesForm({ handleSubmit, handleInputChange, handleCheckboxChange, place, errors, handleLocationChange, handleImageChange }) {
 
@@ -37,7 +38,11 @@ function PlacesForm({ handleSubmit, handleInputChange, handleCheckboxChange, pla
             style={{width: '100%'}}
             onPlaceSelected={handleLocationChange}
             types={[]}
+            // onChange={handleMapChange}
           />
+          {place.location.lat && place.location.lat &&
+            <GoogleMap className="form-map-preview" center={place.location} />
+          }
           {errors.name && <small>{errors.name}</small>}
         </FormGroup>
         <FormGroup>
@@ -51,11 +56,13 @@ function PlacesForm({ handleSubmit, handleInputChange, handleCheckboxChange, pla
           />
           {errors.image && <small>{errors.image}</small>} */}
           <ReactFilestack
-            apikey={keys.FILESTACK_API_KEY}
+            apikey={'AJT677thRhCmDsqq5nKPBz'}
             buttonText="Add image"
             onSuccess={handleImageChange}
           />
+          {place.image &&
           <Thumbnail className="form-image-preview" src={place.image} />
+          }
         </FormGroup>
         <FormGroup>
           <label htmlFor="notes">Notes</label>
@@ -78,7 +85,7 @@ function PlacesForm({ handleSubmit, handleInputChange, handleCheckboxChange, pla
         >
           make public
         </Checkbox>
-        <Button bsStyle="info" type="submit" disabled={formInvalid}>Save</Button>
+        <Button bsStyle="info" type="submit" block disabled={formInvalid}>Save</Button>
       </form>
     </Grid>
   );

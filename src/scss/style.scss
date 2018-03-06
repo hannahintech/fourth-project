@@ -1,18 +1,52 @@
 body {
   color: #49230A;
+  font-family: 'PT Sans', sans-serif;
 }
 
 .btn-info {
+  color: #49230A;
+  background-color: rgba(0, 119, 124, 0.5);
+  // border-color: darken(#00777C, 8%);
+  margin-bottom: 20px;
+}
+.btn-info:hover {
     color: #fff;
-    background-color: #00777C;
+    background-color: rgba(0, 119, 124, 0.8);
     border-color: darken(#00777C, 8%);
+}
+.btn-danger {
+  color: darken(#49230A, 8%);
+  background-color: lighten(#d9534f, 10%);
+  border-color: lighten(#d9534f, 10%);
+}
+.btn-danger.active, .btn-danger:active, .open>.dropdown-toggle.btn-danger {
+  color: #fff;
+  background-color: #d9534f;
+  border-color: #d9534f;
+}
+button {
+  font-family: inherit;
+  font-size: inherit;
+  line-height: inherit;
+  color: #49230A;
+  background-color: rgba(255, 122, 35, 0.7);
+  border-radius: 10%;
+}
+textarea.form-control {
+  height: 250px;
 }
 h1 {
   text-align: center;
 }
 .form-image-preview {
-  width: 100px;
+  margin-top: 5px;
+  width: 120px;
   height: auto;
+}
+.form-map-preview {
+  margin: 5px;
+  width: 400px;
+  height: 200px;
 }
 div {
   padding: 5px 0 5px 0;

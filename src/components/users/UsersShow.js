@@ -1,7 +1,7 @@
 import React from 'react';
 import Axios from 'axios';
 import { Link } from 'react-router-dom';
-import { Grid, Row, Col, NavItem, Navbar, Image, Nav } from 'react-bootstrap';
+import { Grid, Row, Col, NavItem, Navbar, Image, Nav, Button } from 'react-bootstrap';
 import { LinkContainer } from 'react-router-bootstrap';
 
 import Auth from '../../lib/Auth';
@@ -30,7 +30,7 @@ class UsersShow extends React.Component {
         <Navbar>
           <Navbar.Header>
             <Navbar.Brand>
-              <a className="user-profile-name">{`${this.state.user.username}'s place notes`}</a>
+              <h4 className="user-profile-name">{`${this.state.user.username}'s place notes`}</h4>
             </Navbar.Brand>
             { Auth.isAuthenticated() &&
             <Navbar.Toggle />
@@ -38,11 +38,14 @@ class UsersShow extends React.Component {
           </Navbar.Header>
           { Auth.isAuthenticated() &&
           <Navbar.Collapse>
-            <Nav pullRight>
-              <LinkContainer to="/places/new">
+            <Navbar.Text pullRight>
+              {/* <LinkContainer to="/places/new">
                 <NavItem eventKey={1}>Add Place</NavItem>
+              </LinkContainer> */}
+              <LinkContainer to="/places/new">
+                <Button bsStyle="info">Add Place</Button>
               </LinkContainer>
-            </Nav>
+            </Navbar.Text>
           </Navbar.Collapse>
           }
         </Navbar>

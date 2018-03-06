@@ -1,7 +1,9 @@
 import React from 'react';
 import Axios from 'axios';
 import { Link } from 'react-router-dom';
-import { Grid, Row, Col, Image, Navbar } from 'react-bootstrap';
+import { Grid, Row, Col, Image, Navbar, Button } from 'react-bootstrap';
+
+import { LinkContainer } from 'react-router-bootstrap';
 
 import Auth from '../../lib/Auth';
 
@@ -29,6 +31,16 @@ class PlacesIndex extends React.Component {
             <Navbar.Toggle />
             }
           </Navbar.Header>
+          <Navbar.Collapse>
+            <Navbar.Text pullRight>
+              {/* <LinkContainer to="/places/new">
+                <NavItem eventKey={1}>Add Place</NavItem>
+              </LinkContainer> */}
+              <LinkContainer to="/places/new">
+                <Button bsStyle="info">Add Place</Button>
+              </LinkContainer>
+            </Navbar.Text>
+          </Navbar.Collapse>
         </Navbar>
         <Grid>
           <Row>
