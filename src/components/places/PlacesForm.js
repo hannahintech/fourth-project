@@ -2,7 +2,7 @@ import React from 'react';
 import { Grid, FormGroup, FormControl, Checkbox, Button, Thumbnail } from 'react-bootstrap';
 import ReactFilestack from 'filestack-react';
 
-import keys from '../../lib/keys';
+import keys from '../../lib/api-keys/keys';
 
 import Autocomplete from 'react-google-autocomplete';
 

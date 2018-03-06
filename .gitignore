@@ -2,4 +2,4 @@
 coverage
 public
 node_modules
-publicKeys
+api-keys
