@@ -1,19 +1,22 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
-import { Grid, Row, Col, Button } from 'react-bootstrap';
+// import { Link } from 'react-router-dom';
+import { Grid, Row, Col } from 'react-bootstrap';
 
-import Auth from '../../lib/Auth';
+// import Auth from '../../lib/Auth';
 
 class LandingPage extends React.Component {
   render() {
     return(
-      <Grid>
+      <Grid className="landing-page-grid">
         <Row>
-          <Col>
-            <h4>{'This is place notes. You can save your notes about places you\'ve visited, and plan your journey to new places!'}</h4>
+          <Col md={4}>
+            <div className="landing-page-image"></div>
+          </Col>
+          <Col md={6}>
+            <h3>{'This is place notes. You can save your notes about places you\'ve visited, and plan your journey to new places!'}</h3>
           </Col>
         </Row>
-        <Row>
+        {/* <Row>
           <Col>
             <Link to="/login">
               { !Auth.isAuthenticated() && <Button className="landing-page-button" bsStyle="info" bsSize="large">Login</Button>}
@@ -22,7 +25,7 @@ class LandingPage extends React.Component {
               { !Auth.isAuthenticated() && <Button className="landing-page-button" bsStyle="info" bsSize="large">Register</Button>}
             </Link>
           </Col>
-        </Row>
+        </Row> */}
       </Grid>
     );
   }

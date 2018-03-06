@@ -7,7 +7,9 @@ body {
     background-color: darken(#5bc0de, 13%);
     border-color: darken(#46b8da, 13%);
 }
-
+h1 {
+  text-align: center;
+}
 div {
   padding: 5px 0 5px 0;
 }
@@ -17,6 +19,16 @@ div {
   background-image: url('../assets/Places_Notes.svg');
   background-size: contain;
   background-repeat: no-repeat;
+}
+.landing-page-image {
+  width: 350px;
+  height: 400px;
+  background-image: url('../assets/Places_Notes.svg');
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+.landing-page-grid {
+  // background-color: #FF7A23; n.b. opacity
 }
 .delete-place-show-page {
   display: flex;

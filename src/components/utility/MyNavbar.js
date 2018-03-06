@@ -14,13 +14,19 @@ const MyNavbar = ({ history }) => {
 
   return(
     <Navbar inverse collapseOnSelect>
+      { Auth.isAuthenticated() &&
       <Navbar.Brand>
         <div className="brand-logo"></div>
-      </Navbar.Brand>
+      </Navbar.Brand> 
+      }
       <Navbar.Header>
+        { Auth.isAuthenticated() &&
         <Navbar.Brand>
-          <a href="/places">Place Notes</a>
+          <LinkContainer to="/places">
+            <a href="#">Place Notes</a>
+          </LinkContainer>
         </Navbar.Brand>
+        }
         <Navbar.Toggle />
       </Navbar.Header>
       <Navbar.Collapse>
