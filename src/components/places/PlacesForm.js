@@ -4,7 +4,7 @@ import ReactFilestack from 'filestack-react';
 
 import Autocomplete from 'react-google-autocomplete';
 
-function PlacesForm({ handleSubmit, handleInputChange, handleCheckboxChange, place, errors, handleLocationChange, handleImageChange, imagePreview }) {
+function PlacesForm({ handleSubmit, handleInputChange, handleCheckboxChange, place, errors, handleLocationChange, handleImageChange }) {
 
   const formInvalid = Object.keys(errors).some(key => errors[key]);
 
@@ -53,7 +53,7 @@ function PlacesForm({ handleSubmit, handleInputChange, handleCheckboxChange, pla
             buttonText="Add image"
             onSuccess={handleImageChange}
           />
-          {/* {imagePreview()} */}
+          <img src={place.image} />
         </FormGroup>
         <FormGroup>
           <label htmlFor="notes">Notes</label>
@@ -68,6 +68,7 @@ function PlacesForm({ handleSubmit, handleInputChange, handleCheckboxChange, pla
           {errors.notes && <small>{errors.notes}</small>}
         </FormGroup>
         <Checkbox
+          checked={place.publicPlace}
           id="publicPlace"
           name="publicPlace"
           value={place.publicPlace}

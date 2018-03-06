@@ -1,9 +1,7 @@
 import React from 'react';
 import Axios from 'axios';
 import { Link } from 'react-router-dom';
-import { Grid, Row, Col, Image, Navbar, Button } from 'react-bootstrap';
-
-import { LinkContainer } from 'react-router-bootstrap';
+import { Grid, Row, Col, Image, Navbar } from 'react-bootstrap';
 
 import Auth from '../../lib/Auth';
 
@@ -25,17 +23,12 @@ class PlacesIndex extends React.Component {
         <Navbar>
           <Navbar.Header>
             <Navbar.Brand>
-              <h3>{'Public Place Notes'}</h3>
+              <a>{'Public Place Notes'}</a>
             </Navbar.Brand>
+            { Auth.isAuthenticated() &&
             <Navbar.Toggle />
+            }
           </Navbar.Header>
-          <Navbar.Collapse>
-            <Navbar.Text pullRight>
-              <LinkContainer to={`/users/${Auth.getPayload().userId}`}>
-                { Auth.isAuthenticated() && <Button className="landing-page-button" bsStyle="info">My Place Notes Profile</Button>}
-              </LinkContainer>
-            </Navbar.Text>
-          </Navbar.Collapse>
         </Navbar>
         <Grid>
           <Row>

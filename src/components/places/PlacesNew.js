@@ -51,10 +51,6 @@ class PlacesNew extends React.Component {
     });
   }
 
-  // imagePreview = () => {
-  //   render div
-  // }
-
   handleSubmit = (e) => {
     e.preventDefault();
     Axios

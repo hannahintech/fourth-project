@@ -4,8 +4,8 @@ body {
 
 .btn-info {
     color: #fff;
-    background-color: darken(#5bc0de, 13%);
-    border-color: darken(#46b8da, 13%);
+    background-color: #00777C;
+    border-color: darken(#00777C, 8%);
 }
 h1 {
   text-align: center;
@@ -76,15 +76,16 @@ div {
     background-color: #49230A;
 }
 .navbar-inverse .navbar-toggle:focus, .navbar-inverse .navbar-toggle:hover {
-    background-color: lighten(#49230A, 20%);
+    background-color: lighten(#C8601B, 5%);
 }
 .navbar-inverse .navbar-toggle:focus, .navbar-inverse .navbar-toggle:hover {
-    background-color: lighten(#49230A, 20%);
+    background-color: lighten(#C8601B, 5%);
 }
 
 .navbar-inverse .navbar-nav>.active>a, .navbar-inverse .navbar-nav>.active>a:focus, .navbar-inverse .navbar-nav>.active>a:hover {
     color: #fff;
-    background-color: lighten(#49230A, 20%);
+    // background-color: lighten(#C8601B, 5%);
+    background-color: #FF7A23;
     border-radius: 15%;
 }
 

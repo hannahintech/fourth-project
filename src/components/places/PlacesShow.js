@@ -57,11 +57,11 @@ class PlacesShow extends React.Component {
               <Thumbnail src={this.state.place.image || 'https://static.pexels.com/photos/67211/field-away-summer-sky-67211.jpeg'} alt="242x200">
               </Thumbnail>
             </Col>
-            {!this.state.place.notes === 0 &&
             <Col>
               <h4>Notes</h4>
+              {/* {!this.state.place.notes === '' && } */}
               <p>{this.state.place.notes}</p>
-            </Col>}
+            </Col>
           </Row>
           <Row>
             <Col xs={12} md={12}>
